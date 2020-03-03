@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  background: #4e5d7b;
+  color: #fff;
+  min-width: 100px;
+  height: 38px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font: bold 14px helvetica, arial, sans-serif;
+}

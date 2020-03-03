@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Link, Route, BrowserRouter } from 'react-router-dom';
+import Player from './components/Player';
+import Dealer from './components/Dealer';
+import Blackjack from './blackjack/Blackjack';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    var blackjack = new Blackjack();
+
+    this.state = {
+      dealer: [],
+      player: blackjack.GetPlayerHands()
+    };
+  }
+
+  onPlayerHit = (e) => {
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <div className="App">
+            <header className="App-header">
+              <Dealer />
+              <Player hands={this.state.player} />
+            </header>
+          </div>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
