@@ -1,19 +1,24 @@
 import Card from './Card';
+import PlayerHand from './PlayerHand';
 
 class Player {
     constructor(name) {
         this.name = name;
         this.hands = [
-            ['KS', '4S', '3C', '2H'],
-            //['AD', 'QH']
+            new PlayerHand()
         ];
+        this.balance = 100;
+    }
+
+    discardAllHands() {
+        this.hands = [ new PlayerHand() ];
     }
 
     getPlayerName() {
         return this.name;
     }
 
-    getAllPlayerHands() {
+    getAllHands() {
         return this.hands;
     }
 
@@ -21,8 +26,12 @@ class Player {
         return this.hands[index];
     }
 
-    receiveCard(handIdx, card) {
-        this.hands[handIdx].push(card);
+    receiveCard(handIndex, card) {
+        this.hands[handIndex].receiveDealtCard(card);
+    }
+
+    getBlackjackValueOfHand(handIndex) {
+        return this.hands[handIndex].getBlackJackValue();
     }
 }
 

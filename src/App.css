@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: green;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,12 +37,22 @@
   }
 }
 
-button {
-  background: #4e5d7b;
+.controlButton {
+  background: darkgreen;
   color: #fff;
-  min-width: 100px;
-  height: 38px;
+  min-width: 80px;
+  height: 32px;
   border: 2px solid #fff;
   border-radius: 6px;
   font: bold 14px helvetica, arial, sans-serif;
+}
+
+.text {
+  background: darkgreen;
+  color: #fff;
+  width: 60px;
+  height: 24px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font: bold 18px helvetica, arial, sans-serif;
 }

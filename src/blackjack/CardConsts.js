@@ -15,16 +15,23 @@ export const CARDNAMES = [
     "King"
 ];
 
+// export const SUITS = {
+//     SPADES: "Spades",
+//     HEARTS: "Hearts",
+//     DIAMONDS: "Diamonds",
+//     CLUBS: "Clubs"
+// };
+
 export const SUITS = {
-    SPADES: "Spades",
-    HEARTS: "Hearts",
-    DIAMONDS: "Diamonds",
-    CLUBS: "Clubs"
+    SPADES: "S",
+    HEARTS: "H",
+    DIAMONDS: "D",
+    CLUBS: "C"
 };
 
 export const CARDVALUES = [
     null,
-    1,
+    'A',
     2,
     3,
     4,

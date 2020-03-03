@@ -1,3 +1,5 @@
+import Card from './Card';
+
 class PlayerHand {
     constructor(name) {
         this.name = name;
@@ -37,6 +39,36 @@ class PlayerHand {
 
     discardHand() {
         this.hand = [];
+    }
+
+    getBlackJackValue() {
+        let totalVal = 0;
+        let countAces = 0;
+
+        // total up player's cards
+        for (let i = 0; i < this.getHandSize(); i++) {
+
+            let card = this.getCardInHand(i);
+
+            if (card.getValue() === 1) {
+                countAces++;
+                totalVal += 11;
+            }
+            else if (card.getValue() > 10) {
+                totalVal += 10;
+            }
+            else {
+                totalVal += card.getValue();
+            }
+        }
+
+        // handle aces
+        while (countAces > 0 && totalVal > 21) {
+            totalVal -= 10;
+            countAces--;
+        }
+
+        return totalVal;
     }
 
 

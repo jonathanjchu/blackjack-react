@@ -8,20 +8,27 @@ class Player extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      hands: this.props.hands,
-      balance: 0,
+    this.state = {    
+      balance: 100,
     };
+  }
+
+  onHit = (e) => {
+    this.props.onHit(e);
   }
 
   render() {
     return (
       <div>
         {
-          this.state.hands.map((hand, i) =>
+          this.props.hands.map((hand, i) =>
             <>
               <CardHand cards={ hand } key={i} />  
-              <HandControl />
+              <HandControl onHit={this.onHit}
+                          onStay={this.onStay}
+                          onSurrender={this.onSurrender}
+                          onSplit={this.onSplit}
+                          onDouble={this.onDouble} />
             </>
           )
         }
@@ -30,7 +37,7 @@ class Player extends Component {
           ${ this.state.balance }
         </h3>
         
-        <Wager />
+        <Wager balance={this.state.balance} />
       </div>
     );
   }

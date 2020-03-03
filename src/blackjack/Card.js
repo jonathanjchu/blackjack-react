@@ -4,8 +4,9 @@ class Card {
     constructor(suit, number) {
         this.suit = suit;
         this.value = number;
-        this.strValue = CARDNAMES[number];
-        this.imgName = (this.suit[0] + CARDVALUES[this.value]).toLowerCase();
+        this.strValue = CARDVALUES[number];
+        // this.imgName = (this.suit[0] + CARDVALUES[this.value]).toLowerCase();
+        this.imgName = CARDVALUES[this.value] + this.suit[0];
     }
 
     show() {
@@ -17,7 +18,8 @@ class Card {
     }
 
     getStrValue() {
-        return this.strValue;
+        // return this.strValue;
+        return this.value + this.suit
     }
 
     // get numerical value

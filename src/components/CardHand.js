@@ -7,18 +7,18 @@ class CardHand extends Component {
 
     this.state = {
       cards: this.props.cards
-      // cards: [ 'AS', 'KS', 'QS', '10H' ]
     };
 
   }
 
   render() {
+
     return (
       <div>
-        <div class="hand">
+        <div className="hand">
           {
-            this.state.cards.map((card, i) =>
-              <img className="card" src={"./cards/" + card + ".svg"} alt={card} key={i} />
+            this.props.cards.map((card, i) =>
+              <img className="card" src={"./cards/" + card.Value + card.Suit + ".svg"} alt={card} key={i} />
             )
           }
         </div>
